@@ -80,11 +80,13 @@ public class Main {
             int user_answer = scanner.nextInt();
             Answer answer = new Answer(questions.get(i), user_answer);
             answers.add(answer);
-            if (answer.getUser_index_answer() == answer.getQuestion().getIndex_right_answer())
+        }
+        for (int i = 0; i < answers.size(); i++) {
+            if (answers.get(i).getUser_index_answer() == answers.get(i).getQuestion().getIndex_right_answer())
                 System.out.println("Правильный ответ!");
             else {
                 System.out.println("Ответ неверный");
-                wrong_questions.add(questions.get(i).getQuestion());
+                wrong_questions.add(answers.get(i).getQuestion().getQuestion());
             }
         }
 
